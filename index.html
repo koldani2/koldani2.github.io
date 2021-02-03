@@ -82,7 +82,9 @@
         "coordinates": [-96.702572, 40.817804]
     }
 };
-
+	L.marker([-96.702572, 40.817804]).addTo(mymap)
+		.bindPopup("<b>Love Library!</b><br />").openPopup();
+	
 //(16) you can also comment out mapped items if you do not want them to draw. note that the var reference above is still present but below i have turned off a layer
 	L.geoJSON(LoveLibrary,{}).addTo(mymap);
 
