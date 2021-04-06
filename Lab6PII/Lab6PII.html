@@ -1,10 +1,11 @@
 
+
 <html>
  <head>
  <title>Lab 6 | D3</title>
  <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
-<script src="koldani2.github.io/Lab6PII/trails.js"></script>
-<script src="koldani2.github.io/Lab6PII/lnparks.js"></script>
+<script src="https://koldani2.github.io/Lab6PII/trails.js"></script>
+<script src="lnparks2.js"></script>
 <style>
 body {
  position: absolute;
@@ -67,8 +68,8 @@ h2 {
    .attr( "stroke", "#333")
    .attr( "d", geoPath );
 
-   var parksboundaries = svg.append( "g" );
-   parksboundaries.selectAll( "path" )
+   var parksdata = svg.append( "g" );
+   parksdata.selectAll( "path" )
   .data( parksjson.features )
   .enter()
   .append( "path" )
