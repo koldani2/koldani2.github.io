@@ -79,7 +79,7 @@ h2 {
   .attr("class","parksdata")
   .on("mouseover", function(d){
   //populate h2 with "built in" & the year built field from the json
-  d3.select("h2").text("This is " + d.properties.YearAcquired);
+  d3.select("h2").text("Park established in " + d.properties.YearAcquired);
   d3.select(this).attr("class","parksdata hover");
   })
   //here, D3 to replace text interactively based on building data
