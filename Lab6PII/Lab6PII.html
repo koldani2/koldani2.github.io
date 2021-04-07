@@ -11,14 +11,14 @@ body {
  position: absolute;
  font-family: "Proxima Nova", "Montserrat", sans-serif;
 }
-h1, h2 {
+h1, h2, h3 {
  position: absolute;
 background: white;
  left: 10px;
  font-size: 1.3em;
  font-weight: 100;
 }
-h2 {
+h2, h3 {
  top: 30px;
  font-size: 1em;
 }
@@ -30,6 +30,7 @@ h2 {
  <body>
    <h1>Parks & Trails In Lincoln</h1>
  <h2></h2>
+ <h3></h3>
  <script>
    //width and height of the visualization
     var width = 1000;
@@ -86,6 +87,24 @@ h2 {
   .on("mouseout", function(d){
   d3.select("h2").text("");
   d3.select(this).attr("class","parksdata");
+    
+   var trailsdata = svg.append( "g" );
+   trailsdata.selectAll( "path" )
+  .data( trails.features )
+  .enter()
+  .append( "path" )
+  .attr( "fill", function(d) { return ramp(d.properties.TrailUnit) } )
+  .attr( "stroke", "#999" )
+  .attr( "d", geoPath )
+  .attr("class","parksdata")
+  .on("mouseover", function(d){
+  d3.select("h3").text("This is " + d.properties.TrailUnit);
+  d3.select(this).attr("class","trailsdata hover");
+  })
+  //here, D3 to replace text interactively based on building data
+  .on("mouseout", function(d){
+  d3.select("h3").text("");
+  d3.select(this).attr("class","trailsdata");
   });
  </script>
  </body>
