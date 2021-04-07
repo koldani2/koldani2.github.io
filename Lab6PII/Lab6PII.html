@@ -87,7 +87,8 @@ h2, h3 {
   .on("mouseout", function(d){
   d3.select("h2").text("");
   d3.select(this).attr("class","parksdata");
-    
+   }];
+      
    var trailsdata = svg.append( "g" );
    trailsdata.selectAll( "path" )
   .data( trails.features )
@@ -96,7 +97,7 @@ h2, h3 {
   .attr( "fill", function(d) { return ramp(d.properties.TrailUnit) } )
   .attr( "stroke", "#999" )
   .attr( "d", geoPath )
-  .attr("class","parksdata")
+  .attr("class","trailsdata")
   .on("mouseover", function(d){
   d3.select("h3").text("This is " + d.properties.TrailUnit);
   d3.select(this).attr("class","trailsdata hover");
