@@ -50,25 +50,23 @@
                     places: 0,
                     digitSeparator: true
                   }
-                }],
-                fieldInfos: [
-                  {
-                    fieldName: "eventTime",
-                    label: "Time",
-                    format: {
-                      places: 0,
-                      digitSeparator: true
-                    }
-                  }],
-                  fieldInfos: [
-                    {
-                      fieldName: "url",
-                      label: "More Information",
-                      format: {
-                        places: 0,
-                        digitSeparator: true
-                      }
-                    }]
+                },
+                {
+                  fieldName: "eventTime",
+                  label: "Time",
+                  format: {
+                    places: 0,
+                    digitSeparator: true
+                  }
+                },{
+                  fieldName: "url",
+                  label: "More Information",
+                  format: {
+                    places: 0,
+                    digitSeparator: true
+                  }
+                },
+              ]
               }]};
 
       const layer = new FeatureLayer({
@@ -78,7 +76,7 @@
       });
 
       const map = new Map({
-        basemap: "hybrid",
+        basemap: "streets",
         layers: [layer] //if you add more layers, separate by a comma
       });
       const view = new MapView({
