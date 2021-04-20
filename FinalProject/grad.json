@@ -1,0 +1,202 @@
+var gradrate = [
+  {
+    "State": "Alabama",
+    "HighSchool": "86.2000"
+  },
+  {
+    "State": "Alaska",
+    "HighSchool": "92.8000"
+  },
+  {
+    "State": "Arizona",
+    "HighSchool": "87.1000"
+  },
+  {
+    "State": "Arkansas",
+    "HighSchool": "86.6000"
+  },
+  {
+    "State": "California",
+    "HighSchool": "83.3000"
+  },
+  {
+    "State": "Colorado",
+    "HighSchool": "91.7000"
+  },
+  {
+    "State": "Connecticut",
+    "HighSchool": "90.6000"
+  },
+  {
+    "State": "Delaware",
+    "HighSchool": 90
+  },
+  {
+    "State": "Florida",
+    "HighSchool": "88.2000"
+  },
+  {
+    "State": "Georgia",
+    "HighSchool": "87.1000"
+  },
+  {
+    "State": "Hawaii",
+    "HighSchool": 92
+  },
+  {
+    "State": "Idaho",
+    "HighSchool": "90.8000"
+  },
+  {
+    "State": "Illinois",
+    "HighSchool": "89.2000"
+  },
+  {
+    "State": "Indiana",
+    "HighSchool": "88.8000"
+  },
+  {
+    "State": "Iowa",
+    "HighSchool": "92.1000"
+  },
+  {
+    "State": "Kansas",
+    "HighSchool": 91
+  },
+  {
+    "State": "Kentucky",
+    "HighSchool": "86.3000"
+  },
+  {
+    "State": "Louisiana",
+    "HighSchool": "85.2000"
+  },
+  {
+    "State": "Maine",
+    "HighSchool": "92.6000"
+  },
+  {
+    "State": "Maryland",
+    "HighSchool": "90.2000"
+  },
+  {
+    "State": "Massachusetts",
+    "HighSchool": "90.8000"
+  },
+  {
+    "State": "Michigan",
+    "HighSchool": "90.8000"
+  },
+  {
+    "State": "Minnesota",
+    "HighSchool": "93.1000"
+  },
+  {
+    "State": "Mississippi",
+    "HighSchool": "84.5000"
+  },
+  {
+    "State": "Missouri",
+    "HighSchool": "89.9000"
+  },
+  {
+    "State": "Montana",
+    "HighSchool": "93.6000"
+  },
+  {
+    "State": "Nebraska",
+    "HighSchool": "91.4000"
+  },
+  {
+    "State": "Nevada",
+    "HighSchool": "86.7000"
+  },
+  {
+    "State": "New Hampshire",
+    "HighSchool": "93.1000"
+  },
+  {
+    "State": "New Jersey",
+    "HighSchool": "89.8000"
+  },
+  {
+    "State": "New Mexico",
+    "HighSchool": "85.6000"
+  },
+  {
+    "State": "New York",
+    "HighSchool": "86.8000"
+  },
+  {
+    "State": "North Carolina",
+    "HighSchool": "87.8000"
+  },
+  {
+    "State": "North Dakota",
+    "HighSchool": "92.6000"
+  },
+  {
+    "State": "Ohio",
+    "HighSchool": "90.4000"
+  },
+  {
+    "State": "Oklahoma",
+    "HighSchool": 88
+  },
+  {
+    "State": "Oregon",
+    "HighSchool": "90.7000"
+  },
+  {
+    "State": "Pennsylvania",
+    "HighSchool": "90.5000"
+  },
+  {
+    "State": "Rhode Island",
+    "HighSchool": "88.8000"
+  },
+  {
+    "State": "South Carolina",
+    "HighSchool": "87.5000"
+  },
+  {
+    "State": "South Dakota",
+    "HighSchool": "91.7000"
+  },
+  {
+    "State": "Tennessee",
+    "HighSchool": "87.5000"
+  },
+  {
+    "State": "Texas",
+    "HighSchool": "83.7000"
+  },
+  {
+    "State": "Utah",
+    "HighSchool": "92.3000"
+  },
+  {
+    "State": "Vermont",
+    "HighSchool": "92.7000"
+  },
+  {
+    "State": "Virginia",
+    "HighSchool": "89.7000"
+  },
+  {
+    "State": "Washington",
+    "HighSchool": "91.3000"
+  },
+  {
+    "State": "West Virginia",
+    "HighSchool": "86.9000"
+  },
+  {
+    "State": "Wisconsin",
+    "HighSchool": "92.2000"
+  },
+  {
+    "State": "Wyoming",
+    "HighSchool": "93.2000"
+  }
+]

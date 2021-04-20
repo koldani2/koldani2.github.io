@@ -1,0 +1,123 @@
+
+<html>
+ <head>
+ <title>Graduation Rate By State</title>
+ <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+<script src="grad.json"></script>
+<script src="states.json"></script>
+<style>
+body {
+ position: absolute;
+ font-family: "Proxima Nova", "Montserrat", sans-serif;
+}
+h1, h2, h3 {
+ position: absolute;
+background: white;
+ left: 10px;
+ font-size: 1.3em;
+ font-weight: 100;
+}
+h2, h3 {
+ top: 30px;
+ font-size: 1em;
+}
+.hover {
+ fill: yellow;
+}
+</style>
+ </head>
+ <body>
+   <h1>Graduation Rate By State</h1>
+ <h2></h2>
+ <h3></h3>
+ <script>
+   //width and height of the visualization
+    var width = 1000;
+    var height = 600;
+
+    var lowColor = '#063a85'
+    var highColor = '#f8f9ff'
+
+    var minVal = 83.3
+    var maxVal = 93.6
+
+    var ramp = d3.scaleLinear().domain([minVal,maxVal]).range([highColor,lowColor]);
+
+   //create the SVG
+    var svg = d3.select( "body" )
+    .append( "svg" )
+    .attr( "width", width )
+    .attr( "height", height );
+    // g will contain geometry elements
+    var g = svg.append( "g" );
+    // Set Projection Parameters
+    var albersProjection = d3.geoAlbers()
+     .scale( 1100 )
+     .rotate( [100,0] )
+     .center( [0, 40] )
+     .translate( [width/2,height/2] );
+   // Append empty placeholder g element to the SVG
+
+   var geoPath = d3.geoPath()
+   .projection( albersProjection );
+   g.selectAll( "path" )
+   .data( statesjson.features )
+   .enter()
+   .append( "path" )
+   .attr( "fill", "#ccc" )
+   .attr( "stroke", "#333")
+   .attr( "d", geoPath );
+
+   var graddata = svg.append( "g" );
+   graddata.selectAll( "path" )
+  .data( statesjson.features )
+  .enter()
+  .append( "path" )
+  .attr( "fill", function(d) { return ramp(d.properties.HighSchool) } )
+  .attr( "stroke", "#999" )
+  .attr( "d", geoPath )
+  .attr("class","graddata")
+  .on("mouseover", function(d){
+  //populate h2 with "built in" & the year built field from the json
+  d3.select("h2").text("Graduation Rate is " + d.properties.HighSchool + " in " + d.properties.NAME);
+  d3.select(this).attr("class","Graduation Rate hover");
+  })
+  //here, D3 to replace text interactively based on building data
+  .on("mouseout", function(d){
+  d3.select("h2").text("");
+  d3.select(this).attr("class","graddata");
+   });
+
+   let zoom = d3.zoom()
+      .on('zoom', () => {
+          svg.attr('transform', d3.event.transform)
+      });
+
+   svg.call(zoom);
+  //let zoom = d3.zoom()
+//      .scaleExtent([1, 2])
+  //    .translateExtent([[-500, -300], [1500, 1000]])
+  //    .on('zoom', () => {
+//          svg.attr('transform', d3.event.transform)
+  //    });
+//   container.call(zoom);
+   //var trailsdata = svg.append( "g" );
+   //trailsdata.selectAll( "path" )
+  //.data( trails.features )
+  //.enter()
+//  .append( "path" )
+  //.attr( "fill", function(d) { return ramp(d.properties.TrailUnit) } )
+  //.attr( "stroke", "#999" )
+//  .attr("class","trailsdata")
+//  .on("mouseover", function(d){
+//  d3.select("h3").text("This is " + d.properties.TrailUnit);
+//  d3.select(this).attr("class","trailsdata hover");
+//  })
+  //here, D3 to replace text interactively based on building data
+//  .on("mouseout", function(d){
+//  d3.select("h3").text("");
+//  d3.select(this).attr("class","trailsdata");
+//  });
+ </script>
+ </body>
+</html>
