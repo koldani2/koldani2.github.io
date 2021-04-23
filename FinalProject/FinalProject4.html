@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Educational Attainment by Counties</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.19/"></script>
+
+    <script>
+      require([
+        "esri/Map",
+        "esri/layers/FeatureLayer",
+        "esri/views/MapView",
+        "esri/widgets/Legend"
+      ], (Map, FeatureLayer, MapView, Legend) => {
+        // Create the map
+        const map = new Map({
+          basemap: "gray-vector"
+        });
+
+        // Create the MapView
+        const view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-95, 39.4],
+          zoom: 4
+        });
+
+        view.ui.add(new Legend({ view: view }), "bottom-right");
+
+        const popup = {
+          title: "Highest Education Completed in {NAME} by % of Population",
+          content: [
+            {
+              type: "fields",
+              fieldInfos: [
+                {
+                  fieldName: "B15002_calc_pctLTHSE",
+                  label: "Less Than High School "
+        },
+        {
+          fieldName: "B15002_calc_pctHSE",
+          label: "Completed High School",
+          format: {
+            digitSeparator: true,
+            places: 0
+          }
+        },
+        {
+          fieldName: "B15002_calc_pctSomeCollE",
+          label: "Some College",
+          format: {
+            digitSeparator: true,
+            places: 0
+          }
+        },
+        {
+          fieldName: "B15002_calc_pctGEBAE",
+          label: "Bachelor's Degree or Higher",
+          format: {
+            digitSeparator: true,
+            places: 0
+                  }
+                }
+              ]
+            }
+          ]
+        };
+
+        const featureLayer = new FeatureLayer({
+          url: "https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/ACS_10_14_Educational_Attainment_Boundaries/FeatureServer/1",
+          popupTemplate: popup
+        });
+        map.add(featureLayer);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
